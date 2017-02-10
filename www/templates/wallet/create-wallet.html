@@ -1,0 +1,32 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">New Wallet</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeCreateWalletModal()">{{'l_close'|translate}}</button>
+        </div>
+    </ion-header-bar>
+  <ion-content>
+    <form name="frmNewWallet" ng-submit="doCreateWallet(walletPassPhrase)" novalidate>
+      <div class="list list-inset">
+        <label class="item item-input item-divider item-text-wrap">
+            Enter a password or phrase with a minimum of 20 characters. 
+            Please write this down somewhere as it is necesarry to recover your wallet in case it gets lost or if you want to recreate your wallet on an other device.
+            Your passphrase is case, special characters and space sensitive!!
+          <i class="fa fa-info-circle iconPadding" />
+        </label>
+        <label class="item item-input item-text-wrap">
+            <textarea name="passphrase" rows="4" ng-model="walletPassPhrase.value" placeholder="{{'l_wallet_passphrase'|translate}}" ng-minlength="20" required />
+            <a ng-if="frmNewWallet.passphrase != ''" on-touch="frmNewWallet.passphrase = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-divider">
+          <button class="button button-block button-assertive" type="submit" ng-disabled="frmNewWallet.passphrase.$invalid">{{'l_next'|translate}}</button>
+        </label>
+      </div>
+      <div class="padding">
+          <p ng-show="!frmNewWallet.passphrase.$error.required && frmNewWallet.passphrase.$error.minlength&& frmNewWallet.passphrase.$dirty">* {{'l_greater_than_20'|translate}} (actual {{frmNewWallet.passphrase.$viewValue.length}})</p>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,20 @@
+﻿<ion-view>
+    <ion-nav-title>{{'l_receive'|translate}}</ion-nav-title>
+    <div class="float-button">
+        <span class="height-fix">
+            <a class="content" ng-click="addNewAddress()">
+                <i class="ion-plus-circled assertive"> </i>
+            </a>
+        </span>
+    </div>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-icon-left item-text-wrap" ng-repeat="address in walletReceiveAddresses">
+                <i class="icon fa fa-qrcode"></i><i class="boldText">{{address.addrStr}}</i>
+                <p>Label: <i class="boldText">{{address.label}}</i></p>
+                <p>Balance: <i class="boldText">{{address.balance | currency : 'CSC ' : 8}}</i></p>
+                <p>Unconfirmed: <i class="boldText">{{address.unconfirmedBalance | currency : 'CSC ' : 8}}</i></p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

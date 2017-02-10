@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">{{'l_login'|translate}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">{{'l_close'|translate}}</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="frmLogin" ng-submit="doLogin()" novalidate>
+      <div class="list list-inset">
+        <label class="item item-input item-divider">
+          <i class="icon ion-email iconPadding"/>
+          <input name="email" type="email" ng-model="loginData.email" placeholder="{{'l_email'|translate}}" required>
+            <a ng-if="loginData.email != ''" on-touch="loginData.email = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-input item-divider">
+          <i class="fa fa-key iconPadding" />
+          <input name="password" type="password" ng-model="loginData.password" placeholder="{{'l_password'|translate}}" ng-minlength="8" ng-maxlength="20" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/" required>
+            <a ng-if="loginData.password != ''" on-touch="loginData.password = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <div class="item item-divider">
+          <button class="button button-block button-assertive" type="submit" ng-disabled="frmLogin.email.$invalid || frmLogin.password.$invalid">Log in</button>
+          <button class="button button-clear button-assertive" type="button" ng-click="registration()">{{'l_register_new'|translate}}</button> 
+        </div>
+    </div>
+    <div class="padding">
+        <p ng-show="frmLogin.email.$error.required">* {{'l_email'|translate}} {{'l_is_required'|translate}}</p>
+        <p ng-show="frmLogin.email.$invalid && !frmLogin.email.$pristine">* {{'l_not_valid_email'|translate}}</p>
+        <p ng-show="frmLogin.password.$error.required">* {{'l_password'|translate}} {{'l_is_required'|translate}}</p>
+        <p ng-show="!frmLogin.password.$error.required && (frmLogin.password.$error.minlength || frmLogin.password.$error.maxlength) && frmLogin.password.$dirty">* {{'l_password'|translate}} {{'l_between_8_and_20'|translate}}</p>
+        <p ng-show="!frmLogin.password.$error.required && !(frmLogin.password.$error.minlength || frmLogin.password.$error.maxlength) && frmLogin.password.$dirty && frmLogin.password.$invalid">* {{'l_password'|translate}} {{'l_num_or_special_char'|translate}}</p>
+    </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

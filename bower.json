@@ -1,0 +1,17 @@
+{
+  "name": "MobileWallet",
+  "private": true,
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.3.1"
+  },
+  "resolutions": {
+    "angular": "1.5.3",
+    "angular-sanitize": ">=1.2.15 <1.6"
+  },
+  "dependencies": {
+    "angular-picturefill": "*",
+    "font-awesome": "fontawesome#~4.5.0",
+    "lokijs": "^1.4.1",
+    "ng-webworker": "^0.2.3"
+  }
+}

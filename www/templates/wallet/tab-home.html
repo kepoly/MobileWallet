@@ -1,0 +1,29 @@
+﻿<ion-view>
+    <ion-nav-title>{{'l_wallet'|translate}}</ion-nav-title>
+    <ion-content scroll="false">
+        <div class="list card" ng-hide="wallet">
+            <div class="item item-divider item-text-wrap">
+                <p>You have no wallet on this device. Please create a new wallet.</p>
+                <button class="button button-block button-assertive" ng-click="createWalletModal.show()">{{'l_create_wallet'|translate}}</button>
+            </div>
+        </div>
+        <div class="list card" ng-show="wallet">
+            <ion-scroll direction="y">
+                <ion-refresher pulling-text="Refresh..." on-refresh="updateWalletValues()">
+                </ion-refresher>
+                <div class="item item-divider">Default Address</div>
+                <div class="item item-text-wrap boldText item-button-right">
+                    {{wallet.defaultAddress}}
+                    <button class="button button-assertive" ng-click="copyWalletAddress(wallet.defaultAddress)" style="margin: 3% 0% 3% 0%;">
+                        <i class="fa fa-clipboard"></i>
+                    </button>
+                </div>
+                <div class="item item-divider">Total Balance</div>
+                <div class="item item-text-wrap boldText">{{walletBalance | currency : 'CSC ' : 8}}</div>
+                <div class="item item-divider" ng-show="unconfirmedWalletBalance > 0">Unconfirmed Balance</div>
+                <div class="item item-text-wrap boldText" ng-show="unconfirmedWalletBalance > 0">{{unconfirmedWalletBalance | currency : 'CSC ' : 8}}</div>
+                <div class="item item-divider">Transactions</div>
+                <div class="item item-text-wrap boldText">{{walletTransactionCount}}</div>
+            </div>
+    </ion-content>
+</ion-view>

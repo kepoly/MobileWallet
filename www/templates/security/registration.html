@@ -1,0 +1,54 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">Registration</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeRegistration()">Close</button>
+        </div>
+    </ion-header-bar>
+  <ion-content>
+    <form name="frmRegistration" ng-submit="doRegistration()" novalidate>
+      <div class="list list-inset">
+        <label class="item item-input item-divider">
+          <i class="fa fa-info-circle iconPadding" />
+          <input name="firstname" type="text" ng-model="registrationData.firstname" placeholder="{{'l_firstname'|translate}}" required>
+            <a ng-if="registrationData.firstname != ''" on-touch="registrationData.firstname = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-input item-divider">
+            <i class="fa fa-info-circle iconPadding" />
+            <input name="lastname" type="text" ng-model="registrationData.lastname" placeholder="{{'l_lastname'|translate}}" required>
+            <a ng-if="registrationData.lastname != ''" on-touch="registrationData.lastname = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-input item-divider">
+            <i class="icon ion-email iconPadding" />
+            <input name="email" type="email" ng-model="registrationData.email" placeholder="{{'l_email'|translate}}" required>
+            <a ng-if="registrationData.email != ''" on-touch="registrationData.email = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-input item-divider">
+          <i class="fa fa-key iconPadding" />
+          <input name="pwd" type="password" ng-model="registrationData.password" placeholder="{{'l_password'|translate}}" ng-minlength="8" ng-maxlength="20" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/" required>
+            <a ng-if="registrationData.password != ''" on-touch="registrationData.password = ''">
+                <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+        </label>
+        <label class="item item-divider">
+          <button class="button button-block button-assertive" type="submit" ng-disabled="frmRegistration.firstname.$invalid || frmRegistration.lastname.$invalid || frmRegistration.email.$invalid || frmRegistration.pwd.$invalid">Register User</button>
+        </label>
+      </div>
+      <div class="padding">
+          <p ng-show="frmRegistration.firstname.$error.required">* {{'l_firstname'|translate}} {{'l_is_required'|translate}}</p>
+          <p ng-show="frmRegistration.lastname.$error.required">* {{'l_lastname'|translate}} {{'l_is_required'|translate}}</p>
+          <p ng-show="frmRegistration.email.$error.required">* {{'l_email'|translate}} {{'l_is_required'|translate}}</p>
+          <p ng-show="frmRegistration.email.$invalid && !frmRegistration.email.$pristine">* {{'l_not_valid_email'|translate}}</p>
+          <p ng-show="frmRegistration.pwd.$error.required">* {{'l_password'|translate}} {{'l_is_required'|translate}}</p>
+          <p ng-show="!frmRegistration.pwd.$error.required && (frmRegistration.pwd.$error.minlength || frmRegistration.pwd.$error.maxlength) && frmRegistration.pwd.$dirty">* {{'l_password'|translate}} {{'l_between_8_and_20'|translate}}</p>
+          <p ng-show="!frmRegistration.pwd.$error.required && !(frmRegistration.pwd.$error.minlength || frmRegistration.pwd.$error.maxlength) && frmRegistration.pwd.$dirty && frmRegistration.pwd.$invalid">* {{'l_password'|translate}} {{'l_num_or_special_char'|translate}}</p>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,10 @@
+<ion-view>
+  <ion-nav-title>{{"l_blockchain" | translate}}</ion-nav-title>
+  <ion-content>
+      <div class="list list-inset">
+          <ion-item ng-repeat="block in blocks">
+              {{block.height}}
+          </ion-item>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+﻿<ion-modal-view ng-controller="PinpadCtrl">
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">Enter PIN Code</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closePINPadModal()">{{'l_close'|translate}}</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list list-inset">
+            <div class="row">
+                <div class="col col-offset-10 text-center">
+                    <button class="button fa fa-circle fa-2x" ng-hide="PIN1.length == 0"></button>
+                    <button class="button" ng-show="PIN1.length == 0"></button>
+                </div>
+                <div class="col text-center">
+                    <button class="button fa fa-circle fa-2x" ng-hide="PIN2.length == 0"></button>
+                    <button class="button" ng-show="PIN2.length == 0"></button>
+                </div>
+                <div class="col text-center">
+                    <button class="button fa fa-circle fa-2x" ng-hide="PIN3.length == 0"></button>
+                    <button class="button" ng-show="PIN3.length == 0"></button>
+                </div>
+                <div class="col text-center">
+                    <button class="button fa fa-circle fa-2x" ng-hide="PIN4.length == 0"></button>
+                    <button class="button" ng-show="PIN4.length == 0"></button>
+                </div>
+            </div>
+        </div>
+        <div class="list list-inset">
+            <div class="row">
+                <button class="col col-offset-10 button" ng-click="addPINNumber(7)">7</button>
+                <button class="col button" ng-click="addPINNumber(8)">8</button>
+                <button class="col button" ng-click="addPINNumber(9)">9</button>
+            </div>
+            <div class="row">
+                <button class="col col-offset-10 button" ng-click="addPINNumber(4)">4</button>
+                <button class="col button" ng-click="addPINNumber(5)">5</button>
+                <button class="col button" ng-click="addPINNumber(6)">6</button>
+            </div>
+            <div class="row">
+                <button class="col col-offset-10 button" ng-click="addPINNumber(1)">1</button>
+                <button class="col button" ng-click="addPINNumber(2)">2</button>
+                <button class="col button" ng-click="addPINNumber(3)">3</button>
+            </div>
+            <div class="row">
+                <button class="col col-offset-10 button"></button>
+                <button class="col button" ng-click="addPINNumber(0)">0</button>
+                <button class="col button fa fa-caret-left fa-2x" id="del" ng-click="removePINNumber()"></button>
+            </div>
+            <button class="button button-block button-assertive" ng-click="executePinOk()" ng-disabled="pinpadPIN.length < 4">{{'l_ok'|translate}}</button>
+        </div>
+        </ion-content>
+</ion-modal-view>

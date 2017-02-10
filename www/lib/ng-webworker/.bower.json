@@ -1,0 +1,34 @@
+{
+  "name": "ng-webworker",
+  "version": "0.2.3",
+  "description": "ng-webworker creates dynamic webworkers so angular apps can be multi-threaded.",
+  "homepage": "http://mattslocum.github.io/ng-webworker/",
+  "main": "src/ng-webworker.js",
+  "ignore": [
+    "demo",
+    "test",
+    ".gititnore",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "keywords": [
+    "angular",
+    "web worker",
+    "webworker",
+    "ng-webworker",
+    "thread",
+    "parallel"
+  ],
+  "license": "MIT",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.3",
+    "commit": "54762f3f4eab27310eeece06dcc81dba778d482e"
+  },
+  "_source": "https://github.com/mattslocum/ng-webworker.git",
+  "_target": "^0.2.3",
+  "_originalSource": "ng-webworker",
+  "_direct": true
+}

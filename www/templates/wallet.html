@@ -1,0 +1,28 @@
+<ion-view>
+    <ion-nav-title>{{'l_wallet'|translate}}</ion-nav-title>
+    <ion-content class="has-tabs no-footer" scroll="false">
+        <ion-header-bar class="bar-assertive balance-header">
+            <div class="col">
+                <div class="row padding-left balance-font">
+                    <div class="col col-67">{{'l_confirmed_balance'|translate}}</div>
+                    <div class="col">{{walletBalance | currency : 'CSC ' : 2}}</div>
+                </div>
+                <div class="row padding-left balance-font">
+                    <div class="col col-67">{{'l_unconfirmed_balance'|translate}}</div>
+                    <div class="col">{{unconfirmedWalletBalance | currency : 'CSC ' : 2}}</div>
+                </div>
+            </div>
+        </ion-header-bar>
+        <ion-tabs class="tabs-assertive tabs-top tabs-icon-top tabs-default" delegate-handle="wallet-tabs">
+            <ion-tab title="{{'l_send'|translate}}" icon="fa fa-sign-out" ui-sref="app.wallet.send" ng-if="wallet">
+                <ion-nav-view name="tab-send" class="balance-tabs-top"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="{{'l_wallet'|translate}}" icon="fa fa-money" ui-sref="app.wallet.home" ng-if="true">
+                <ion-nav-view name="tab-home" class="balance-tabs-top"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="{{'l_receive'|translate}}" icon="fa fa-sign-in" ui-sref="app.wallet.receive" ng-if="wallet">
+                <ion-nav-view name="tab-receive" class="balance-tabs-top"></ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-content>
+</ion-view>

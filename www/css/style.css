@@ -1,0 +1,76 @@
+/* Empty. Add your own CSS if you like */
+.boldText { 
+	font-weight: bold;
+}
+
+.iconPadding
+{
+   padding-right: 20px;
+}
+
+.image-background {
+    background-image: url('../img/background.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+ion-side-menu.menu-left.menu {
+  background-color: #000000 !important;
+}
+
+.removeMarginBottom{
+  margin-bottom: 0px !important;
+}
+
+.no-footer {
+    bottom: 0px;
+}
+
+.balance-font{
+    font-size:0.85rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.balance-header{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    height:auto;
+}
+
+.balance-tabs-top {
+    top: 31px;
+}
+
+.tabs-top > .tabs, .tabs.tabs-top{
+    top: 75px; /* was 44px*/
+}
+
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 50px;
+  padding: 50px;
+  font-size: 50px;
+  background: $warning;
+  position: fixed;
+  bottom: 50px; /* Adjust to where you want it */
+  right: 25px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px; /* Note, this must be half the font size */
+  color: $light;
+}

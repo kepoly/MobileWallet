@@ -1,0 +1,25 @@
+<ion-view class="image-background">
+  <ion-nav-title>{{"l_coininfo" | translate}}</ion-nav-title>
+  <ion-content padding="true">
+      <ion-refresher pulling-text="Refresh..." on-refresh="updateCoinInfo()">
+      </ion-refresher>
+      <div class="list list-inset">
+          <div class="item item-divider">{{'l_blockHeight'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.Blockheight}}</div>
+          <div class="item item-divider">{{'l_difficulty'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.Difficulty}}</div>
+          <div class="item item-divider">{{'l_coin_supply'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.CoinSupply}}</div>
+          <div class="item item-divider">{{'l_market_cap'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.MarketCapital | currency : '$ ' : 2}}</div>
+          <div class="item item-divider">{{'l_hashrate'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.HashrateGH}}</div>
+          <div class="item item-divider">{{'l_block_time'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.BlockTime | date:'dd-MM-yyyy HH:mm:ss Z'}}</div>
+          <div class="item item-divider">{{'l_last_price'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.PriceUSD | currency : '$ ' : 4}}</div>
+          <div class="item item-divider">{{'l_last_btc_price'|translate}}</div>
+          <div class="item item-text-wrap boldText">{{$root.coinInfo.PriceBTC}}</div>
+      </div>
+  </ion-content>
+</ion-view>
